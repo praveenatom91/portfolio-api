@@ -36,8 +36,8 @@ router.post("/blogs", async (req, res) => {
 });
 
 router.post("/photos", async (req, res, next) => {
-  const { photo } = req.body;
-  if (!photo) {
+  const { image, category } = req.body;
+  if (!image || !category) {
     return res.status(422).json({ message: "Please fill the field" });
   }
   try {
@@ -45,7 +45,10 @@ router.post("/photos", async (req, res, next) => {
       {},
       {
         $push: {
-          photos: photo,
+          photos: {
+            image: image,
+            category: category,
+          },
         },
       }
     );
@@ -63,8 +66,8 @@ router.post("/photos", async (req, res, next) => {
 });
 
 router.post("/arts", async (req, res) => {
-  const { photo } = req.body;
-  if (!photo) {
+  const { image, category } = req.body;
+  if (!image || !category) {
     return res.status(422).json({ message: "Please fill the field" });
   }
   try {
@@ -72,7 +75,10 @@ router.post("/arts", async (req, res) => {
       {},
       {
         $push: {
-          arts: photo,
+          arts: {
+            image: image,
+            category: category,
+          },
         },
       }
     );
@@ -91,9 +97,9 @@ router.post("/arts", async (req, res) => {
 });
 
 router.post("/travels", async (req, res) => {
-  const { photo } = req.body;
+  const { image, category } = req.body;
 
-  if (!photo) {
+  if (!image || !category) {
     return res.status(422).json({ message: "Please fill the field" });
   }
   try {
@@ -101,7 +107,10 @@ router.post("/travels", async (req, res) => {
       {},
       {
         $push: {
-          travels: photo,
+          travels: {
+            image: image,
+            category: category,
+          },
         },
       }
     );
@@ -120,8 +129,8 @@ router.post("/travels", async (req, res) => {
 });
 
 router.post("/developers", async (req, res) => {
-  const { photo } = req.body;
-  if (!photo) {
+  const { image, category } = req.body;
+  if (!image || !category) {
     return res.status(422).json({ message: "Please fill the field" });
   }
   try {
@@ -129,7 +138,10 @@ router.post("/developers", async (req, res) => {
       {},
       {
         $push: {
-          developers: photo,
+          developers: {
+            image: image,
+            category: category,
+          },
         },
       }
     );
@@ -148,8 +160,8 @@ router.post("/developers", async (req, res) => {
 });
 
 router.post("/sculptures", async (req, res) => {
-  const { photo } = req.body;
-  if (!photo) {
+  const { image, category } = req.body;
+  if (!image || !category) {
     return res.status(422).json({ message: "Please fill the field" });
   }
   try {
@@ -157,7 +169,10 @@ router.post("/sculptures", async (req, res) => {
       {},
       {
         $push: {
-          sculptures: photo,
+          sculptures: {
+            image: image,
+            category: category,
+          },
         },
       }
     );
