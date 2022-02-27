@@ -9,10 +9,20 @@ const subSchema = new mongoose.Schema({
   },
 });
 
-const dataScheme = new mongoose.Schema({
-  blogs: {
-    type: [String],
+const blogSubSchema = new mongoose.Schema({
+  title: {
+    type: String,
   },
+  image: {
+    type: String,
+  },
+  content: {
+    type: String,
+  },
+});
+
+const dataScheme = new mongoose.Schema({
+  blogs: [blogSubSchema],
   photos: [subSchema],
   arts: [subSchema],
   travels: [subSchema],
