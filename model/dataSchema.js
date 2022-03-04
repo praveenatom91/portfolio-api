@@ -12,6 +12,8 @@ const subSchema = new mongoose.Schema({
 const blogSubSchema = new mongoose.Schema({
   title: {
     type: String,
+    require: true,
+    unique: true,
   },
   image: {
     type: String,
