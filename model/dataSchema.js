@@ -19,6 +19,9 @@ const blogSubSchema = new mongoose.Schema({
   content: {
     type: String,
   },
+  slug: {
+    type: String,
+  },
 });
 
 const dataScheme = new mongoose.Schema({

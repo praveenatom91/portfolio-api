@@ -8,7 +8,7 @@ require("dotenv").config();
 // ************ POSTS ******************************
 
 router.post("/blogs", async (req, res) => {
-  const { title, image, content } = req.body;
+  const { title, image, content, slug } = req.body;
   if (!image || !title || !content) {
     return res.status(422).json({ message: "Please fill the field" });
   }
@@ -21,6 +21,7 @@ router.post("/blogs", async (req, res) => {
             title: title,
             image: image,
             content: content,
+            slug: slug,
           },
         },
       }
